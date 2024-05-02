@@ -1,0 +1,12 @@
+export { default as Home } from "./Home";
+export { default as Services } from "./Services";
+export { default as Avendre } from "./Avendre";
+export { default as Alouer } from "./Alouer";
+export { default as Parcelle } from "./Parcelle";
+export { default as Quincallerie } from "./Quincallerie";
+export { default as QuincallerieItemPage } from "./QuincallerieItemPage";
+export { default as PropertySix } from "./PropertySix";
+export { default as Contact } from "./Contact";
+export { default as Portifolio } from "./Portifolio";
+export { default as PortifolioTwo } from "./PortifolioTwo";
+export { default as PageNotFound } from "./PageNotFound";

@@ -1,0 +1,122 @@
+[
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Brosse",
+    "productPrice": 19000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/51m-b1hffL._AC_-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Cisaille",
+    "productPrice": 47500,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/Cisaille-a-demultiplication-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Cloueur",
+    "productPrice": 542000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/cloueur-a-rouleau-plastique-cnp65-1-paslode-square-1000x1000-1-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Drill",
+    "productPrice": 98000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/0055514_rotomartillo-ingco-rh150028-sds-plus-1500w-55j-industrial_600-555x416.jpeg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Marteau",
+    "productPrice": 6000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/s-l225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Outil de polissage",
+    "productPrice": 25000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/meihe-meuleuse-d-angle-de-l-air-outil-de-polissage-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Menier outillage",
+    "productPrice": 9000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/outilsmanuel2-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Miter",
+    "productPrice": 308000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/71TPrh4okNL._AC_SL1500_-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Scie a bois",
+    "productPrice": 7000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/scie-a-bois-500-mm-grosse-denture-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Scie",
+    "productPrice": 6500,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/scie-a-beton-cellulaire-650-mm-12-dents-par-pouce-stanley-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Perceuse",
+    "productPrice": 55000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/1475228579549-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Outil electrique",
+    "productPrice": 19000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/HTB16s_ubRLN8KJjSZFpq6zZaVXan-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Perceuse fraiceuse",
+    "productPrice": 555000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/7094985-1-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Pince",
+    "productPrice": 2500,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/pince-universelle-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Pinceau",
+    "productPrice": 2000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2020/10/pinceau-economique-70-mm-materiel-peinture-bateau-250x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Pilliers",
+    "productPrice": 5500,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/655px-Tool-pliers-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Scie circulaire",
+    "productPrice": 35000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/HTB1nG84bj7nBKNjSZLe762xCFXav-300x225.png"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Scie debout",
+    "productPrice": 140000,
+    "images": "https://www.escombenin.com/wp-content/uploads/2013/06/Milwaukee-Miter-Saw-Stand-40-08-0551-with-M18-Fuel-Saw-300x225.jpg"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Brouettes",
+    "productPrice": 35000,
+    "images": "https://www.groupebatimat.com/IMG/arton399.jpg?1434648004"
+  },
+  {
+    "productDetails": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus,",
+    "productName": "Jardinage",
+    "productPrice": 18000,
+    "images": "https://www.groupebatimat.com/IMG/arton401.jpg?1434647930"
+  }
+]
