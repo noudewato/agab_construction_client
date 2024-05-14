@@ -17,15 +17,10 @@ const Quincallerie = () => {
       dispatch(closeFilterMenu());
   };
 
-  const carouselImages = [
-    "https://placekitten.com/800/300",
-    "https://placekitten.com/801/300",
-    "https://placekitten.com/802/300",
-    // Add more image URLs as needed
-  ];
+
   return (
     <HomeLayout>
-      <div className="pt-20 mt-[50px] px-[3%] md:px-[6%] pb-[5rem]">
+      <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
         <div className="text-center mb-[3rem]">
           <h1 className="text-2xl text-primary mb-[1rem] font-bold ">
             LA BOUTIQUE

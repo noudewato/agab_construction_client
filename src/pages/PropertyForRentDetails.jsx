@@ -8,6 +8,7 @@ import SingleHomeCard from "../components/common/page-componets/SingleHomeCard";
 import HomeLayout from "./HomeLayout";
 
 const PropertyForRentDetails = ({ basis }) => {
+  
   const { id } = useParams();
   const houseDetails = location.find((house) => {
     return house.id === parseInt(id);

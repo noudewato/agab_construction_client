@@ -12,23 +12,20 @@ import { CssBaseline } from "@mui/material";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import 'react-quill/dist/quill.snow.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <ThemeToggleProvider>
+      {/* <ThemeToggleProvider> */}
         <CssBaseline />
         <Provider store={store}>
           {/* <AnimatePresence> */}
-          <ToastContainer />
           <App />
           {/* </AnimatePresence> */}
         </Provider>
-      </ThemeToggleProvider>
+      {/* </ThemeToggleProvider> */}
     </Router>
   </React.StrictMode>
 );

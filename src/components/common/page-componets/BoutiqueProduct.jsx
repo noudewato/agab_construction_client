@@ -7,7 +7,7 @@ const BoutiqueProduct = ({ id, name, image, price, basis }) => {
     <div
       className={`flex-1 ${
         basis ? basis : "basis-[18rem]"
-      } shadow-light dark:border-card-dark border rounded-lg overflow-hidden cursor-pointer relative group`}
+      } shadow-2xl dark:border-card-dark border bg-white rounded-2xl overflow-hidden cursor-pointer relative group`}
     >
       <Link
         to={`/boutique/${id}`}

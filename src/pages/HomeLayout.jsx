@@ -32,7 +32,7 @@ const HomeLayout = ({children}) => {
   });
 
   return (
-    <div>
+    <div className="bg-slate-100">
       {showLoader && <Loader />}
       <Navbar />
       <Dropdown />

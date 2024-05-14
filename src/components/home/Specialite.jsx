@@ -85,7 +85,7 @@ const Specialite = () => {
         <div className="deal cursor-pointer overflow-hidden relative col-span-1 row-span-1 w-full group">
           <Link to="/services">
             <img
-              src="https://www.sauvage-batiment-bourbourg.fr/s/cc_images/cache_77217073.jpg"
+              src="https://www.pfm13.fr/wp-content/uploads/2022/03/avantPFM.jpg"
               alt="img"
               className="rounded-xl w-full h-fit object-cover group-hover:scale-125 transition-a"
             />

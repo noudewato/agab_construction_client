@@ -10,3 +10,7 @@ export { default as Contact } from "./Contact";
 export { default as Portifolio } from "./Portifolio";
 export { default as PortifolioTwo } from "./PortifolioTwo";
 export { default as PageNotFound } from "./PageNotFound";
+export { default as Realisation } from "./Realisation";
+export { default as PropertyForSellDetails } from "./PropertyForSellDetails";
+export { default as PropertyForRentDetails } from "./PropertyForRentDetails";
+export { default as LandForSellDetails } from "./LandForSellDetails";

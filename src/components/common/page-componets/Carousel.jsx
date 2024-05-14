@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
@@ -34,9 +34,7 @@ const variants = {
   },
 };
 
-
-
- const Carousel = ({ images }) => {
+const Carousel = ({ images }) => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -56,8 +54,8 @@ const variants = {
       return;
     }
     setIndex(index - 1);
-   }
-   
+  }
+
   //  useEffect(() => {
   //    const intervalId = setInterval(() => {
   //      // Increment the current index with wrap-around logic
@@ -101,6 +99,7 @@ const variants = {
           <div className="flex items-center justify-center gap-2">
             {images?.map((_, i) => (
               <div
+                key={i}
                 className={`
               transition-all w-2 h-2 bg-white rounded-full
               ${index === i ? "p-2" : "bg-opacity-50"}
@@ -114,5 +113,4 @@ const variants = {
   );
 };
 
-
-export default Carousel
+export default Carousel;

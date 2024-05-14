@@ -4,13 +4,14 @@ import CardLabels from "./CardLabels";
 import Carousel from "./Carousel";
 
 const SingleHomeCard = ({
-  id,
-  name,
-  location,
-  price,
-  purpose,
-  number_of_beds,
-  number_of_bathrooms,
+  _id,
+  propertyTitle,
+  propertyLocation,
+  city,
+  propertyPrice,
+  propertyStatus,
+  beds,
+  bathrooms,
   dimensions,
   image,
   basis,
@@ -22,7 +23,7 @@ const SingleHomeCard = ({
     <div
       className={`flex-1 ${
         basis ? basis : "basis-[18rem]"
-      } shadow-light dark:border-card-dark border rounded-lg cursor-pointer overflow-hidden relative group`}
+      } shadow-2xl dark:border-card-dark border bg-white rounded-2xl cursor-pointer overflow-hidden relative group`}
     >
       <div className="group !opacity-100 overflow-hidden relative">
         {images ? (
@@ -33,7 +34,7 @@ const SingleHomeCard = ({
           <div className="!opacity-100">
             <img
               src={image}
-              alt={name}
+              alt={propertyTitle}
               className="w-full  h-fit md:h-[250px] object-cover group-hover:scale-125 transition-a"
             />
           </div>
@@ -43,21 +44,21 @@ const SingleHomeCard = ({
         <div className="absolute bottom-0 left-0 w-full px-2 py-2 transition-transform bg-gradient-to-t from-black/80 sm:translate-y-10 group-hover:translate-y-0 to-transparent">
           <div className="text-white flex-align-center gap-x-2">
             <BiMap />
-            <p>{location}</p>
+            <p>{propertyLocation}</p>
           </div>
         </div>
       </div>
-      <CardLabels purpose={purpose} location={location} />
+      <CardLabels propertyStatus={propertyStatus} city={city} />
       <div className="p-3">
         <Link
-          to={purpose === "A Vendre" ? `/a-vendre/${id}` : `/a-louer/${id}`}
+          to={propertyStatus === "A Vendre" ? `/a-vendre/${_id}` : `/a-louer/${_id}`}
           className="group-hover:text-primary transition-a"
         >
-          <h1 className="text-lg font-bold capitalize">{name}</h1>
+          <h1 className="text-lg font-bold capitalize">{propertyTitle}</h1>
 
           <div className="flex justify-between mt-3 mb-[3rem]">
             <div className="flex-align-center gap-x-2">
-              {number_of_beds ? (
+              {beds ? (
                 <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
                   <BiBed />{" "}
                 </div>
@@ -66,11 +67,11 @@ const SingleHomeCard = ({
               )}
 
               <p className="text-sm">
-                {number_of_beds ? number_of_beds + " Chambres" : ""}{" "}
+                {beds ? beds + " Chambres" : ""}{" "}
               </p>
             </div>
             <div className="flex-align-center gap-x-2">
-              {number_of_bathrooms ? (
+              {bathrooms ? (
                 <div className="icon-box !w-7 !h-7 bg-primary/20 hover:!bg-primary/40 text-primary">
                   <BiTab />
                 </div>
@@ -79,7 +80,7 @@ const SingleHomeCard = ({
               )}
 
               <p className="text-sm">
-                {number_of_bathrooms ? number_of_bathrooms + " Douches" : ""}{" "}
+                {bathrooms ? bathrooms + " Douches" : ""}{" "}
               </p>
             </div>
             <div className="flex-align-center gap-x-2">
@@ -97,7 +98,7 @@ const SingleHomeCard = ({
 
           <div className="absolute bottom-0 left-0 right-0 my-2 mx-4 flex-center-between">
             <h1 className="text-lg font-semibold text-primary">
-              {myCurrency.format(price)} FCFA{" "}
+              {myCurrency.format(propertyPrice)} FCFA{" "}
               <span className="text-gray-400">
                 {duration ? "/" + duration : ""}
               </span>

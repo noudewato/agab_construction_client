@@ -11,11 +11,11 @@ import {
   Parcelle,
   Quincallerie,
   QuincallerieItemPage,
+  LandForSellDetails,
+  PropertyForRentDetails,
+  PropertyForSellDetails,
+  Realisation
 } from "./pages";
-import Realisation from "./pages/Realisation";
-import PropertyForSellDetails from "./pages/PropertyForSellDetails";
-import PropertyForRentDetails from "./pages/PropertyForRentDetails";
-import LandForSellDetails from "./pages/LandForSellDetails";
 
 const App = () => {
   return (
@@ -31,7 +31,6 @@ const App = () => {
       <Route path="/parcelle/:id" element={<LandForSellDetails />} />
       <Route path="/boutique" element={<Quincallerie />} />
       <Route path="/boutique/:id" element={<QuincallerieItemPage />} />
-      {/* <Route path="/property-6" element={<PropertySix />} /> */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/portifolio" element={<Portifolio />} />
       <Route path="/portifolio-2" element={<PortifolioTwo />} />

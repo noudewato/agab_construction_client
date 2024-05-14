@@ -1,5 +1,5 @@
-import { feeds } from "../../../data/dummyData";
-import SingleFeedCardGrid from "../../common/page-componets/SingleFeedCardGrid";
+import { feeds } from "../../data/dummyData";
+import SingleFeedCardGrid from "../common/page-componets/SingleFeedCardGrid";
 
 const Feeds = () => {
   return (

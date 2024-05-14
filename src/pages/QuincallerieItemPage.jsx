@@ -16,9 +16,9 @@ const QuincallerieItemPage = () => {
 
   return (
     <HomeLayout>
-      <div className="px-[3%] md:px-[6%] pt-[3rem] bg-slate-100 min-h-[100vh] pb-[5rem] ">
+      <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
         <div className="text-center mb-[3rem]">
-          <h1 className="text-2xl text-primary mt-[6rem] mb-[1rem] font-bold ">
+          <h1 className="text-2xl text-primary mb-[1rem] font-bold ">
             LA BOUTIQUE
           </h1>
           <h1 className="heading">

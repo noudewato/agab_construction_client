@@ -23,7 +23,7 @@ const SingleHomeCard = ({
     <div
       className={`flex-1 ${
         basis ? basis : "basis-[18rem]"
-      } shadow-light dark:border-card-dark border rounded-lg cursor-pointer overflow-hidden relative group`}
+      } shadow-2xl dark:border-card-dark bg-white border rounded-2xl cursor-pointer overflow-hidden relative group`}
     >
       <div className="group !opacity-100 overflow-hidden relative">
         {images ? (

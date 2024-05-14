@@ -20,19 +20,6 @@ const PropertyForSellDetails = ({ basis }) => {
     thumbnail: `${image}`,
   }));
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    // autoplay: true,
-    // speed: 2000,
-    // autoplaySpeed: 2000,
-  };
-
   return (
     <HomeLayout>
       <div className="px-[3%] md:px-[6%] pt-[3rem] mt-[3rem] bg-slate-100 min-h-[100vh] pb-[5rem]">
@@ -139,18 +126,26 @@ const PropertyForSellDetails = ({ basis }) => {
               Prix: {myCurrency.format(houseDetails.price)} FCFA
             </h1>
 
-            <button className="btn btn-primary font-bold flex-center-center gap-x-2 my-[1rem]">
+            <a
+              href="tel:+22966551600"
+              style={{ width: "50%" }}
+              className="btn btn-primary font-bold flex-center-center gap-x-2 my-[1rem]"
+            >
               <span>
                 <FaPhoneAlt className="font-bold text-white" />
               </span>
               +22966551600
-            </button>
-            <button className="btn flex-center-center bg-green-400 font-bold text-white gap-x-2 my-[1rem] hover:bg-green-600">
+            </a>
+            <a
+              href="https://wa.me/+22996661896"
+              style={{ width: "50%" }}
+              className="btn flex-center-center bg-green-400 font-bold text-white gap-x-2 my-[1rem] hover:bg-green-600"
+            >
               <span>
                 <FaWhatsapp className="font-bold text-white" />
               </span>
-              +22950342510
-            </button>
+              +22996661896
+            </a>
           </div>
         </div>
 

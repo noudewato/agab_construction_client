@@ -6,7 +6,7 @@ const PropertyGridList = ({ textLength, showLabels }) => {
   const { currentDataItems } = useSelector(dataStore);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-[2rem]">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-[2rem]">
       {currentDataItems?.map((property) => (
         <SingleProductCardFullWidth
           key={property.id}

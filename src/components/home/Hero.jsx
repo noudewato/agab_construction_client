@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import HeroCarousel from "../../common/page-componets/HeroCarousel";
+import Slider from "../common/page-componets/SliderItem";
 
 const Hero = () => {
   const heroBackgroundImage = [
@@ -47,13 +46,13 @@ const Hero = () => {
     },
   ];
   return (
-    <div className="overflow-hidden relative">
-      <HeroCarousel autoSlide={true}>
-        {heroBackgroundImage.map((heroImage) => (
+    <Slider>
+      {heroBackgroundImage.map((item) => (
+        <Slider.Item key={item.id}>
           <div
             className="hero z-0 md:-mt-10 flex-center-center px-[3%] md:px-[6%]"
             style={{
-              backgroundImage: `url('${heroImage?.image}')`,
+              backgroundImage: `url('${item?.image}')`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               minWidth: "100%",
@@ -62,8 +61,8 @@ const Hero = () => {
           >
             <div className="p-10 md:w-[100%] mx-[3%] md:mx-[6%] bg-lightDark">
               <h1 className="text-4xl font-bold capitalize md:text-7xl text-white">
-                {heroImage?.title} <br />
-                {heroImage?.subtitle}
+                {item?.title} <br />
+                {item?.subtitle}
               </h1>
               <div className="pl-3 mt-5 border-l-4 border-secondary text-white text-lg">
                 <p>
@@ -78,15 +77,17 @@ const Hero = () => {
                   nous vous assurons un résultat de qualité. */}
                 </p>
               </div>
-                <button className="mt-6 btn btn-primary cursor-pointer">get started</button>
+              <button className="mt-6 btn btn-primary cursor-pointer">
+                get started
+              </button>
             </div>
             {/* <div className="flex-1 basis-[20rem]">
         <img src="/images/hero-4.png" alt="" className="w-full" />
       </div> */}
           </div>
-        ))}
-      </HeroCarousel>
-    </div>
+        </Slider.Item>
+      ))}
+    </Slider>
   );
 };
 

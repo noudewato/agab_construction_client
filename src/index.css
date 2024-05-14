@@ -55,7 +55,7 @@ footer a:hover {
 }
 
 .sub-heading {
-  @apply text-primary text-lg uppercase w-fit bg-primary/20 px-3 py-[3px] rounded-full mb-3 ;
+  @apply text-primary text-lg uppercase w-fit bg-primary/20 px-3 py-[3px] rounded-full mb-3;
 }
 
 .image {
