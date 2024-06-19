@@ -9,7 +9,7 @@ const Slider = ({
   children,
   className,
   showControls = true,
-  showDots = true,
+  showDots = false,
   autoPlay = true,
   leftControlIcon: LeftControl,
   rightControlIcon: RightControl,

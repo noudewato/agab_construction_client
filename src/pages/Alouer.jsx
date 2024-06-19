@@ -6,7 +6,6 @@ import {
   AdvancedSearch,
   HeadeFilters,
   Pagination,
-  // PriceRange,
   PropertyFullWidth,
   Type,
 } from "../components/common/page-componets";
@@ -15,6 +14,7 @@ import { closeFilterMenu, uiStore } from "../features/uiSlice";
 import HomeLayout from "./HomeLayout";
 import { baseUrl } from "../services/api";
 import axios from "axios";
+import Loader from "../components/common/Loader";
 
 const Alouer = () => {
   const { isFilterMenuOpen } = useSelector(uiStore);
@@ -26,12 +26,14 @@ const Alouer = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [rentData, setRentData] = useState([]);
-  const [beds, setBeds] = useState("");
+  const [beds, setBeds] = useState(0);
   const [bathrooms, setBathrooms] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [city, setCity] = useState("");
   const [minPropertyPrice, setMinPropertyPrice] = useState("");
   const [maxPropertyPrice, setMaxPropertyPrice] = useState("");
+  const [propertyTypeData, setPropertyTypeData] = useState([]);
+  const [selectedType, setSelectedType] = useState("");
 
   const fetchData = async () => {
     setLoading(true);
@@ -41,6 +43,7 @@ const Alouer = () => {
       const res = await axios.get(`${baseUrl}/api/properties`);
       if (res) {
         setRentData(res.data);
+        setPropertyTypeData(res.data);
       }
     } catch (err) {
       console.log(err);
@@ -61,6 +64,8 @@ const Alouer = () => {
   const handleSearch = async () => {
     setLoading(true);
     setErrors(null);
+    setSelectedType("");
+    console.log("Beds value before search:", beds);
 
     try {
       const response = await axios.get(`${baseUrl}/api/properties`, {
@@ -86,7 +91,13 @@ const Alouer = () => {
   const handleCancel = async () => {
     setLoading(true);
     setErrors(null);
-
+    setBathrooms("");
+    setBeds("");
+    setCity("");
+    setPropertyType("");
+    setMinPropertyPrice("");
+    setMaxPropertyPrice("");
+    setSelectedType("");
     try {
       const response = await axios.get(`${baseUrl}/api/properties`);
 
@@ -98,9 +109,43 @@ const Alouer = () => {
     setLoading(false);
   };
 
-  // useEffect(() => {
-  //   handleSearch();
-  // }, [beds, bathrooms, propertyType, city, minPropertyPrice, maxPropertyPrice]);
+  const propertyTypeDataFiltered = propertyTypeData?.filter(
+    (item) => item.propertyStatus === "A Louer"
+  );
+
+  const uniqueType = [
+    ...new Set(propertyTypeDataFiltered?.map((item) => item.propertyType)),
+  ];
+
+  const sumByPropertyType = propertyTypeDataFiltered?.reduce((acc, item) => {
+    acc[item.propertyType] = (acc[item.propertyType] || 0) + 1;
+    return acc;
+  }, {});
+
+  const handleRadioChange = (e) => {
+    const selectedType = e.target.value;
+    setSelectedType(selectedType);
+
+    const filteredData = propertyTypeDataFiltered.filter(
+      (item) => item.propertyType === selectedType
+    );
+
+    setBathrooms("");
+    setBeds("");
+    setCity("");
+    setPropertyType("");
+    setMinPropertyPrice("");
+    setMaxPropertyPrice("");
+    setRentData(filteredData);
+  };
+
+  useEffect(() => {
+    const loaderTimer = setTimeout(() => {
+      setLoading(true);
+    }, 1000);
+
+    return () => clearTimeout(loaderTimer);
+  }, []);
 
   const [layout, setLayout] = useState("grid");
 
@@ -112,15 +157,20 @@ const Alouer = () => {
             NOS APPARTEMENTS EN LOCATION
           </h1>
           <h1 className="heading">
-            Nous Disposons de bon appartements meubles climatise a louer.
+            Découvrez Une Gamme Diversifiée D'immeubles Mise En Location,
+            Soigneusement Sélectionnés Pour Leur Qualité Et Leur Valeur. Que
+            Vous Recherchiez Une Propriété Résidentielle Ou Commerciale, Nous
+            Avons Ce Qu'il Vous Faut. Notre Équipe Professionnelle Est Là Pour
+            Vous Guider À Travers Le Processus De Location, En Fournissant Des
+            Conseils Avisés Et Un Service Personnalisé À Chaque Étape.
           </h1>
         </div>
         <HeadeFilters layout={layout} setLayout={setLayout} />
 
         <div className="grid md:grid-cols-4 gap-x-14 mt-5">
           {loading ? (
-            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
-              ...Loading
+            <div className="md:col-span-3  flex items-center min-h-fit justify-center">
+              <Loader />
             </div>
           ) : errors ? (
             <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
@@ -163,9 +213,13 @@ const Alouer = () => {
                   onSearch={handleSearch}
                   onCancel={handleCancel}
                 />
-                
-                <Type rentDataFiltered={rentDataFiltered} />
-                {/* <PriceRange /> */}
+
+                <Type
+                  uniqueType={uniqueType}
+                  sumByPropertyType={sumByPropertyType}
+                  handleRadioChange={handleRadioChange}
+                  selectedType={selectedType}
+                />
               </div>
             </div>
           </div>

@@ -1,8 +1,38 @@
-import { location } from "../../../data/dummyData";
+import { useEffect, useState } from "react";
 import SingleProductCard from "./SingleProductCard";
 import Slider from "react-slick";
+import axios from "axios";
+import { baseUrl } from "../../../services/api";
+import Loader from "../Loader";
 
-const FeaturedForRent = () => {
+const FeaturedForSell = () => {
+  const [rentData, setRentData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+
+  const fetchData = () => {
+    setLoading(true);
+    setErrors(null);
+    axios
+      .get(`${baseUrl}/api/properties`)
+      .then((res) => setRentData(res.data))
+      .catch((err) => {
+        console.log(`data not found ${err}`);
+        setErrors("Error while fetching data!");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const filteredData = rentData?.filter(
+    (item) => item.propertyStatus === "A Louer"
+  );
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -28,12 +58,13 @@ const FeaturedForRent = () => {
           ...style,
           display: "block",
           background: "#0572f7",
-          borderRadius: "10px"
+          borderRadius: "10px",
         }}
         onClick={onClick}
       />
     );
   }
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -70,27 +101,33 @@ const FeaturedForRent = () => {
   };
 
   return (
-    <div className="pb-10">
-      <div className="text-center mb-[2rem]">
-        <h1 className="sub-heading mx-auto text-2xl text-primary mb-[1rem] font-bold ">
+    <div className="pt-7 my-[2rem]">
+      <div className="text-center my-[2rem]">
+        <h1 className="sub-heading mx-auto text-primary my-[1.5rem] font-bold ">
           Nos Proprietes En Location
         </h1>
         <h1 className="heading">
-          Découvrez nos offres spéciales de villa, maison, appartement, terrain,
-          immeuble, bureau, boutique et magasin en Location .
+          Découvrez une gamme diversifiée d'immeubles mise en location, soigneusement
+          sélectionnés pour leur qualité et leur valeur. Que vous recherchiez
+          une propriété résidentielle ou commerciale, nous avons ce qu'il vous
+          faut. Notre équipe professionnelle est là pour vous guider à travers
+          le processus de location, en fournissant des conseils avisés et un service
+          personnalisé à chaque étape.
         </h1>
       </div>
-      {/* <div className="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3"> */}
-
-      <Slider {...settings}>
-        {location.slice(0, 9).map((featured) => (
-          <SingleProductCard key={featured.id} {...featured} />
-        ))}
-      </Slider>
-
-      {/* </div> */}
+      {loading ? (
+        <Loader />
+      ) : errors ? (
+        <div>{errors}</div>
+      ) : (
+        <Slider {...settings}>
+          {filteredData?.map((featured) => (
+            <SingleProductCard key={featured.id} {...featured} />
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };
 
-export default FeaturedForRent;
+export default FeaturedForSell;

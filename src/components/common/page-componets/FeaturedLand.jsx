@@ -1,8 +1,34 @@
-import { parcelle } from "../../../data/dummyData";
-import SingleProductCard from "./SingleProductCard";
+import axios from "axios";
+import FeaturedLandCard from "./FeaturedLandCard";
 import Slider from "react-slick";
+import { baseUrl } from "../../../services/api";
+import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 const FeaturedLand = () => {
+  const [landData, setLandData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+
+  const fetchData = () => {
+    setLoading(true);
+    setErrors(null);
+    axios
+      .get(`${baseUrl}/api/landProperties`)
+      .then((res) => setLandData(res.data))
+      .catch((err) => {
+        console.log(`data not found ${err}`);
+        setErrors("Error while fetching data!");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -76,16 +102,26 @@ const FeaturedLand = () => {
           Nos Parcelles
         </h1>
         <h1 className="heading">
-          Découvrez nos offres spéciales de parcelles disponibles dans differentes localites et abordable a bon prix.
+          Explorez notre vaste sélection de terrains à vendre, conçue pour
+          répondre à vos besoins uniques. Avec notre expertise en immobilier,
+          nous vous guiderons dans la recherche de votre parcelle idéale. Faites
+          le premier pas vers la réalisation de votre projet en parcourant notre
+          catalogue dès aujourd'hui. Contactez-nous pour des conseils
+          personnalisés et une assistance professionnelle tout au long du
+          processus.
         </h1>
       </div>
-      {/* <div className="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 md:grid-cols-3"> */}
-
-      <Slider {...settings}>
-        {parcelle.slice(0, 9).map((featured) => (
-          <SingleProductCard key={featured.id} {...featured} />
-        ))}
-      </Slider>
+      {loading ? (
+        <Loader />
+      ) : errors ? (
+        <div>{errors}</div>
+      ) : (
+        <Slider {...settings}>
+          {landData?.map((featured) => (
+            <FeaturedLandCard key={featured.id} {...featured} />
+          ))}
+        </Slider>
+      )}
 
       {/* </div> */}
     </div>

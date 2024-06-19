@@ -7,9 +7,10 @@ import Navbar from "../components/common/Navbar";
 import { closeDropdown } from "../features/uiSlice";
 import Dropdown from "../components/common/DropDown";
 import Loader from "../components/common/Loader";
-const HomeLayout = ({children}) => {
+
+const HomeLayout = ({ children }) => {
   const [showButton, setShowButton] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true); // Initially show the loader
   const dispatch = useDispatch();
   const route = useLocation();
 
@@ -18,7 +19,7 @@ const HomeLayout = ({children}) => {
     window.scrollY > 500 ? setShowButton(true) : setShowButton(false);
   });
 
-  const handleCloseDropdown = (e) => {
+  const handleCloseDropdown = () => {
     dispatch(closeDropdown());
   };
 
@@ -26,22 +27,26 @@ const HomeLayout = ({children}) => {
     window.scrollTo(0, 0);
   }, [route]);
 
-  // Loader when page is loading
-  window.addEventListener("load", () => {
-    setShowLoader(false);
-  });
+  useEffect(() => {
+    // Hide the loader after 3000 milliseconds (3 seconds)
+    const timer = setTimeout(() => {
+      setShowLoader(false);
+    }, 1500);
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
 
   return (
     <div className="bg-slate-100">
-      {showLoader && <Loader />}
       <Navbar />
       <Dropdown />
+
       <div
         className="min-h-screen"
         onClick={handleCloseDropdown}
-        onMouseOver={() => dispatch(closeDropdown())}
+        onMouseOver={handleCloseDropdown}
       >
-        {children}
+        {showLoader ? <Loader /> : children}
       </div>
       <div className="px-[2%] md:px-[6%] bg-card-dark border border-card-dark">
         <Footer />

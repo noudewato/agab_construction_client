@@ -5,15 +5,14 @@ import {
   AdvancedSearch,
   HeadeFilters,
   Pagination,
-  PriceRange,
   Type,
 } from "../components/common/page-componets";
 import { PropertyList } from "../components/property";
-import { maison } from "../data/dummyData";
 import { closeFilterMenu, uiStore } from "../features/uiSlice";
 import HomeLayout from "./HomeLayout";
 import axios from "axios";
 import { baseUrl } from "../services/api";
+import Loader from "../components/common/Loader";
 
 const Avendre = () => {
   const { isFilterMenuOpen } = useSelector(uiStore);
@@ -26,6 +25,14 @@ const Avendre = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [buyData, setBuyData] = useState([]);
+  const [beds, setBeds] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [city, setCity] = useState("");
+  const [minPropertyPrice, setMinPropertyPrice] = useState("");
+  const [maxPropertyPrice, setMaxPropertyPrice] = useState("");
+  const [propertyTypeData, setPropertyTypeData] = useState([]);
+  const [selectedType, setSelectedType] = useState("");
 
   const fetchData = () => {
     setLoading(true);
@@ -53,6 +60,54 @@ const Avendre = () => {
     (item) => item.propertyStatus === "A Vendre"
   );
 
+  const handleSearch = async () => {
+    setLoading(true);
+    setErrors(null);
+    setSelectedType("");
+
+    try {
+      const response = await axios.get(`${baseUrl}/api/properties`, {
+        params: {
+          propertyType,
+          minPropertyPrice,
+          maxPropertyPrice,
+          city,
+          beds,
+          bathrooms,
+        },
+      });
+
+      setBuyData(response.data);
+    } catch (error) {
+      // console.error("Error searching properties:", error);
+      setErrors(error?.response?.data?.message);
+    }
+
+    setLoading(false);
+  };
+
+  const handleCancel = async () => {
+    setLoading(true);
+    setErrors(null);
+    setBathrooms("");
+    setBeds("");
+    setCity("");
+    setPropertyType("");
+    setMinPropertyPrice("");
+    setMaxPropertyPrice("");
+    setSelectedType("");
+    try {
+      const response = await axios.get(`${baseUrl}/api/properties`);
+
+      setBuyData(response.data);
+    } catch (error) {
+      setErrors(error?.response?.data?.message);
+    }
+
+    setLoading(false);
+  };
+
+
   const [layout, setLayout] = useState("grid");
 
   return (
@@ -63,7 +118,13 @@ const Avendre = () => {
             DES MAISONS MIS EN VENTE
           </h1>
           <h1 className="heading">
-            Nous Disposons de toute sorte de maison en vente.
+            Découvrez une gamme diversifiée d'immeubles à vendre, soigneusement
+            sélectionnés pour leur qualité et leur valeur. Que vous recherchiez
+            une propriété résidentielle ou commerciale, nous avons ce qu'il vous
+            faut. Notre équipe professionnelle est là pour vous guider à travers
+            le processus d'achat, en fournissant des conseils avisés et un
+            service personnalisé à chaque étape. Investissez dans l'avenir avec
+            notre sélection d'immeubles de qualité supérieure
           </h1>
         </div>
         <HeadeFilters layout={layout} setLayout={setLayout} />
@@ -83,18 +144,40 @@ const Avendre = () => {
                   </div>
                   <p className="uppercase">Filters</p>
                 </div>
-                <AdvancedSearch />
+                <AdvancedSearch
+                  beds={beds}
+                  setBeds={setBeds}
+                  bathrooms={bathrooms}
+                  setBathrooms={setBathrooms}
+                  propertyType={propertyType}
+                  setPropertyType={setPropertyType}
+                  city={city}
+                  setCity={setCity}
+                  minPropertyPrice={minPropertyPrice}
+                  setMinPropertyPrice={setMinPropertyPrice}
+                  maxPropertyPrice={maxPropertyPrice}
+                  setMaxPropertyPrice={setMaxPropertyPrice}
+                  onSearch={handleSearch}
+                  onCancel={handleCancel}
+                />
                 <Type />
-                <PriceRange />
-                {/* <SocialIcons /> */}
-                {/* <CTA /> */}
               </div>
             </div>
           </div>
-          <div className="md:col-span-3 gap-4 mt-5 md:mt-0 h-fit md:sticky top-0 mb-[3rem]">
-            {layout === "grid" && <PropertyList />}
-            <Pagination itemsPerPage={8} pageData={buyDataFiltered} />
-          </div>
+          {loading ? (
+            <div className="md:col-span-3  flex items-center min-h-fit justify-center">
+              <Loader />
+            </div>
+          ) : errors ? (
+            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
+              {errors}
+            </div>
+          ) : (
+            <div className="md:col-span-3 gap-4 mt-5 md:mt-0 h-fit md:sticky top-0 mb-[3rem]">
+              {layout === "grid" && <PropertyList />}
+              <Pagination itemsPerPage={8} pageData={buyDataFiltered} />
+            </div>
+          )}
         </div>
       </div>
     </HomeLayout>

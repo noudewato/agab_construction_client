@@ -59,7 +59,7 @@ footer a:hover {
 }
 
 .image {
-  @apply group-hover:scale-125 transition-a;
+  @apply w-full group-hover:scale-125 transition-a;
 }
 
 .card {
@@ -286,5 +286,16 @@ a.active {
 @media only screen and (max-width: 991px) {
   .hero {
     min-height: 70vh;
+  }
+
+}
+
+@media only screen and (max-width: 758px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .heading {
+    @apply text-sm font-bold capitalize text-secondary dark:text-slate-300;
   }
 }

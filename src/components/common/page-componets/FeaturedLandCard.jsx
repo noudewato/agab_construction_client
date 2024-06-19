@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CardLabels from "./CardLabels";
 import Carousel from "./Carousel";
 
-const SingleHomeCard = ({
+const FeaturedLandCard = ({
   _id,
   propertyTitle,
   city,
@@ -20,7 +20,7 @@ const SingleHomeCard = ({
     <div
       className={`flex-1 ${
         basis ? basis : "basis-[18rem]"
-      } shadow-2xl dark:border-card-dark bg-white border rounded-2xl cursor-pointer overflow-hidden relative group`}
+      } shadow-lg dark:border-card-dark bg-white m-4 border rounded-2xl cursor-pointer overflow-hidden relative group`}
     >
       <div className="group !opacity-100 overflow-hidden relative">
         {images ? (
@@ -70,4 +70,4 @@ const SingleHomeCard = ({
   );
 };
 
-export default SingleHomeCard;
+export default FeaturedLandCard;

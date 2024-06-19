@@ -5,9 +5,12 @@ import {
   Pagination,
 } from "../components/common/page-componets";
 import { BoutiqueList } from "../components/property";
-import { boutique } from "../data/dummyData";
 import { closeFilterMenu, uiStore } from "../features/uiSlice";
 import HomeLayout from "./HomeLayout";
+import axios from "axios";
+import { baseUrl } from "../services/api";
+import { useEffect, useState } from "react";
+import Loader from "../components/common/Loader";
 
 const Quincallerie = () => {
   const { isFilterMenuOpen } = useSelector(uiStore);
@@ -17,7 +20,31 @@ const Quincallerie = () => {
       dispatch(closeFilterMenu());
   };
 
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+  const [itemData, setItemData] = useState([]);
 
+  const fetchData = () => {
+    setLoading(true);
+    setErrors(null);
+
+    axios
+      .get(`${baseUrl}/api/products`)
+      .then((response) => {
+        setItemData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrors("Error while fetching Data!!!");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <HomeLayout>
       <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
@@ -26,8 +53,13 @@ const Quincallerie = () => {
             LA BOUTIQUE
           </h1>
           <h1 className="heading">
-            Nous vous présentons les produits de haute de gamme dans notre
-            Boutique.
+            Trouvez Tout Ce Dont Vous Avez Besoin Pour Votre Projet De
+            Construction Dans Notre Quincaillerie Générale Haut De Gamme. Nous
+            Nous Engageons À Fournir Des Matériaux De Qualité Supérieure Pour
+            Assurer La Durabilité Et La Fiabilité De Vos Constructions. Que Vous
+            Soyez Un Entrepreneur Ou Un Bricoleur Passionné, Notre Équipe Est Là
+            Pour Vous Conseiller Et Vous Aider À Trouver Les Produits Adaptés À
+            Vos Besoins Spécifiques.
           </h1>
         </div>
         <div className="grid md:grid-cols-4 gap-x-4 mt-5">
@@ -50,10 +82,20 @@ const Quincallerie = () => {
               </div>
             </div>
           </div>
-          <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
-            <BoutiqueList />
-            <Pagination itemsPerPage={9} pageData={boutique} />
-          </div>
+          {loading ? (
+            <div className="md:col-span-3  flex items-center min-h-fit justify-center">
+              <Loader />
+            </div>
+          ) : errors ? (
+            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
+              {errors}
+            </div>
+          ) : (
+            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
+              <BoutiqueList />
+              <Pagination itemsPerPage={9} pageData={itemData} />
+            </div>
+          )}
         </div>
       </div>
     </HomeLayout>

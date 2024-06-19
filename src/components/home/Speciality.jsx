@@ -10,10 +10,10 @@ const Speciality = () => {
             Nous sommes spécialisés dans la rénovation domiciliaire de qualité
           </h1>
           <p className="mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo laborum
-            earum saepe quibusdam, temporibus aut sapiente, ea alias libero,
-            ipsam perferendis. Consectetur maiores, dicta, earum eaque facilis
-            adipisci dignissimos optio fuga officia itaque quo impedit.
+            Avec des décennies d'expérience dans l'industrie, nous avons les
+            connaissances et les compétences nécessaires pour garantir le succès
+            de votre entreprise. Faites confiance à notre engagement envers
+            l'excellence et laissez-nous transformer vos idées en réalité.
           </p>
           <div className="mt-4">
             <div className="flex-align-center gap-x-2">
@@ -49,7 +49,7 @@ const Speciality = () => {
         <div className="flex-1 basis-[20rem]">
           <div className="relative">
             <img
-              src="https://beninhouse.com/wp-content/uploads/2023/08/Petite-maison-meublee-a-Cotonou-9.jpg"
+              src="https://media-cdn.tripadvisor.com/media/vr-splice-j/05/d1/e2/ba.jpg"
               alt=""
               className="rounded-lg w-full sm:h-[400px] object-cover"
             />

@@ -5,7 +5,7 @@ import { dataStore } from "../../features/dataSlice";
 const BoutiqueList = ({ basis }) => {
     const { currentDataItems } = useSelector(dataStore);
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
       {currentDataItems?.map((myBoutique) => (
         <BoutiqueProduct key={myBoutique.id} {...myBoutique} basis={basis} />
       ))}

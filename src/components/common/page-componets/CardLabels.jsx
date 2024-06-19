@@ -8,7 +8,7 @@ const cardLabels = ({ propertyStatus, propertyLocation, city }) => {
         className={`${
           propertyStatus ? propertyStatus : "hidden"
         }py-[3px] px-3 text-sm rounded-full capitalize text-white ${
-          propertyStatus && propertyStatus === "A Vendre"
+          propertyStatus && (propertyStatus === "A Vendre" || propertyStatus === "A vendre")
             ? "bg-secondary"
             : "bg-amb"
         } `}

@@ -1,13 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   HeadeFilters,
   Pagination,
   PropertyGridList,
 } from "../components/common/page-componets";
-import { parcelle } from "../data/dummyData";
 import HomeLayout from "./HomeLayout";
+import axios from "axios";
+import { baseUrl } from "../services/api";
+import Loader from "../components/common/Loader";
 
 const Parcelle = () => {
+  const [landData, setLandData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+  console.log(landData)
+
+  const fetchData = () => {
+    setLoading(true);
+    setErrors(null);
+    axios
+      .get(`${baseUrl}/api/landProperties`)
+      .then((res) => setLandData(res.data))
+      .catch((err) => {
+        console.log(`data not found ${err}`);
+        setErrors("Error while fetching data!");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const [layout, setLayout] = useState("list");
   return (
     <HomeLayout>
@@ -17,12 +43,26 @@ const Parcelle = () => {
             NOS PARCELLES
           </h1>
           <h1 className="heading">
-            Nous Disposons de bon parcelle abordable a bon prix.
+            Explorez notre vaste sélection de terrains à vendre, conçue pour
+            répondre à vos besoins uniques. Avec notre expertise en immobilier,
+            nous vous guiderons dans la recherche de votre parcelle idéale.
+            Faites le premier pas vers la réalisation de votre projet en
+            parcourant notre catalogue dès aujourd'hui. Contactez-nous pour des
+            conseils personnalisés et une assistance professionnelle tout au
+            long du processus.
           </h1>
         </div>
-        <HeadeFilters layout={layout} setLayout={setLayout} />
-        <PropertyGridList textLength={120} showLabels />
-        <Pagination itemsPerPage={9} pageData={parcelle} />
+        {loading ? (
+          <Loader />
+        ) : errors ? (
+          <>{errors}</>
+        ) : (
+          <div>
+            <HeadeFilters layout={layout} setLayout={setLayout} />
+            <PropertyGridList textLength={120} showLabels />
+            <Pagination itemsPerPage={9} pageData={landData} />
+          </div>
+        )}
       </div>
     </HomeLayout>
   );
