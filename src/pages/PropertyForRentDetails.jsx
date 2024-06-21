@@ -226,7 +226,7 @@ const PropertyForRentDetails = ({ basis }) => {
               {filterData.slice(0, 5).map((item) => (
                 <div
                   key={item._id}
-                  className="relative flex-shrink-0 w-[400px] h-[400px] group rounded-lg overflow-hidden"
+                  className="relative flex-shrink-0 w-[400px] h-[450px] group rounded-lg overflow-hidden"
                 >
                   <SingleProductCard key={item._id} {...item} basis={basis} />
                 </div>

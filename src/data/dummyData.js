@@ -1556,19 +1556,19 @@ export const location = [
 export const metiers = [
   {
     id: 1,
-    name: " Maçonnerie -Béton",
+    name: "Maçonnerie -Béton",
+    description: "Services de maçonnerie et béton pour des constructions solides et durables. Nous réalisons des travaux de fondation, d'élévation de murs, de pose de dalles et de finitions en béton pour tous types de bâtiments.",
     image: [
       "https://www.sauvage-batiment-bourbourg.fr/s/cc_images/cache_76758186.jpg",
       "https://images.pexels.com/photos/1463917/pexels-photo-1463917.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/69483/pexels-photo-69483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "https://images.pexels.com/photos/7931/pexels-photo-7931.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://th.bing.com/th/id/R.e054dcb8fc366e54aa8688500adbc74a?rik=pHkoKzOxLo%2f7zA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f0%2f06%2fPumping_concrete_archives_of_ontario_york_university_construction_jan08.jpg&ehk=7FgweV3Mke1%2bhiXlHnR2MOYQUuM41aeF80By5xUb65w%3d&risl=1&pid=ImgRaw&r=0",
     ],
   },
   {
     id: 2,
     name: "Menuiseries PVC Aluminium",
+    description: "Fabrication et installation de menuiseries en PVC et aluminium pour vos portes, fenêtres et cloisons. Nos solutions allient esthétique et performance énergétique.",
     image: [
       "https://www.lbf-labelfenetres.com/s/cc_images/teaserbox_3507148.jpg?t=1441814753",
       "https://th.bing.com/th/id/R.67574a0aebe43670b6af6424c3945591?rik=hwoX%2fKV4Yuv9qw&riu=http%3a%2f%2fwww.rdvsud.fr%2fwp-content%2fuploads%2fmenuiserie-aluminium-aix.jpg&ehk=YLVXW6vtDfxSVo0bXm7fFIn6zrhkx%2bFjuqxS3KEODng%3d&risl=&pid=ImgRaw&r=0",
@@ -1579,6 +1579,7 @@ export const metiers = [
   {
     id: 3,
     name: "Cloisons Sanitaire",
+    description: "Installation de cloisons sanitaires pour des espaces hygiéniques et fonctionnels. Nous proposons des solutions adaptées aux besoins des établissements publics et privés.",
     image: [
       "https://www.afkor.be/media/1111/detailurinoirdsc3648-bewerkt-dgrijsappel-orig-resized.jpg?center=0.49400479616306953,0.38&mode=crop&width=480&height=300&rnd=132744471500000000",
       "https://refair-bm.fr/wp-content/uploads/2022/09/GR_AT007_A__255.jpg",
@@ -1589,6 +1590,7 @@ export const metiers = [
   {
     id: 4,
     name: "Carrelages & Pierres",
+    description: "Pose de carrelages et pierres naturelles pour un intérieur et un extérieur élégants. Nos experts assurent une installation précise et durable.",
     image: [
       "https://www.sauvage-batiment-bourbourg.fr/s/cc_images/cache_77217023.jpg",
       "https://www.travaux-carrelage.fr/wp-content/uploads/2015/08/Le-carrelage-en-pierre-ou-imitation-pierre-tout-ce-quil-faut-savoir.jpg",
@@ -1599,28 +1601,29 @@ export const metiers = [
   {
     id: 5,
     name: "Charpente & Couverture",
+    description: "Réalisation de charpentes et couvertures pour protéger et embellir votre habitat. Nous assurons des constructions robustes et esthétiques.",
     image: [
       "https://www.homeinstal.fr/library/media/images/user/background/charpente.jpg",
       "https://th.bing.com/th/id/R.9872626f7cb2d5272bde364ec860afc0?rik=i605JWr1J0yrQQ&pid=ImgRaw&r=0",
       "https://static.wixstatic.com/media/259ce6_c3e910314f1e433183f7759176f99378.jpg/v1/fill/w_275,h_206,al_c,q_80,usm_0.66_1.00_0.01/259ce6_c3e910314f1e433183f7759176f99378.jpg",
       "https://th.bing.com/th/id/R.895a6160a4340afd5eccbda68be33054?rik=%2bxoL3lkV2nebQw&pid=ImgRaw&r=0",
-      "https://www.blog-2-couverture.fr/pages/4664380-couverture-052.jpg",
     ],
   },
   {
     id: 6,
     name: "Renovation - façade",
+    description: "Rénovation de façades pour redonner vie et valeur à votre propriété. Nos experts interviennent avec des matériaux et techniques de pointe.",
     image: [
       "https://www.sauvage-batiment-bourbourg.fr/s/cc_images/cache_77217073.jpg",
       "https://www.deceuninck.be/app/uploads/renovation-facade-1.jpg",
       "https://th.bing.com/th/id/OIP.zavejuM0rHkj1f5L536zXwHaE7?rs=1&pid=ImgDetMain",
       "https://th.bing.com/th/id/OIP.0TpmJl343qNbZlm223425wHaE7?rs=1&pid=ImgDetMain",
-      "https://th.bing.com/th/id/R.599bc93b614100fd13d0cd18163cb338?rik=ON0gqBEjyt9IEw&riu=http%3a%2f%2fkvscaffoldingltd.com%2fmedia%2fimages%2ftrio1.jpg&ehk=h6N9jPA0tEmd%2bSS3QhSf6d3F26EDeCeB6sbbG4pQF70%3d&risl=&pid=ImgRaw&r=0",
     ],
   },
   {
     id: 7,
     name: "Peinture & Decoration",
+    description: "Travaux de peinture et décoration pour embellir vos espaces intérieurs et extérieurs. Nous utilisons des produits de haute qualité pour des finitions impeccables.",
     image: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTCRiAs2D6SN-dL5hok-ao8_owy9JTv9ulhP-20HPDq3ra_0gCmBGw8Lhi0uWcqHfJNh0&usqp=CAU",
       "https://www.morbihan-peinture.com/upload/pages-dynamiques/qipjlxep-iphone-055-compressor.jpg",
@@ -1628,7 +1631,41 @@ export const metiers = [
       "https://th.bing.com/th/id/OIP.A7Ybvt-DG03cTCQFsSJ08AHaHa?rs=1&pid=ImgDetMain",
     ],
   },
+  {
+    id: 8,
+    name: "Vente immobilière",
+    description: "Découvrez une gamme diversifiée d'immeubles à vendre, soigneusement sélectionnés pour leur qualité et leur valeur. Que vous recherchiez une propriété résidentielle ou commerciale, nous avons ce qu'il vous faut. Notre équipe professionnelle est là pour vous guider à travers le processus d'achat, en fournissant des conseils avisés et un service personnalisé à chaque étape. Investissez dans l'avenir avec notre sélection d'immobiliers de premier choix.",
+    image: [
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+      "https://images.pexels.com/photos/1063996/pexels-photo-1063996.jpeg",
+      "https://images.pexels.com/photos/1059275/pexels-photo-1059275.jpeg",
+      "https://images.pexels.com/photos/1402047/pexels-photo-1402047.jpeg",
+    ],
+  },
+  {
+    id: 9,
+    name: "Vente des parcelles",
+    description: "Parcelles disponibles à la vente pour des projets résidentiels ou commerciaux. Nos terrains sont situés dans des emplacements stratégiques, offrant un excellent potentiel de développement.",
+    image: [
+      "https://th.bing.com/th/id/R.0402b5b7e7ff9eb70cb8c58f1e1f2894?rik=8jNZ5kQ1EXvZ%2bg&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/R.43343a0a649f91c59f784c0b3b0ee4e8?rik=I8Urq6M%2fJHdL2g&pid=ImgRaw&r=0",
+      "https://th.bing.com/th/id/OIP.rpz_9y-NOrk3w5lsRgxzWgHaF7?pid=ImgDet&rs=1",
+      "https://th.bing.com/th/id/OIP.JE9rK1fVz6VapqxnvnTYtwHaFj?pid=ImgDet&rs=1",
+    ],
+  },
+  {
+    id: 10,
+    name: "Location immobilière",
+    description: "Service de location immobilière pour répondre à tous vos besoins résidentiels ou commerciaux. Nous proposons une gamme variée de biens à louer, adaptés à vos exigences et à votre budget.",
+    image: [
+      "https://th.bing.com/th/id/OIP.nC4jLTkKeMyX8FSUABHR9wHaFj?pid=ImgDet&rs=1",
+      "https://th.bing.com/th/id/R.6d1eaa156481037ec2ddc898d087b112?rik=%2fVgs4HGzSZWAPQ&pid=ImgRaw&r=0",
+      "https://www.century21.fr/siteminimum/_pim_/annonces/VUE/VUE0/0/5/5/5/10005555/media/7cb6dbf7073d5415b047f58ab15d5bcd.jpg",
+      "https://img.clasf.fr/2020/05/26/Location-immobili-re-AIX-EN-PROVENCE-20200526140932.2535860015.jpg",
+    ],
+  },
 ];
+
 
 export const parcelle = [
   {

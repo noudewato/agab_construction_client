@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useRef, useState } from "react";
 import { metiers } from "../../../data/dummyData";
 import HeroCarousel from "./HeroCarousel";
@@ -13,14 +14,6 @@ const Categories = () => {
       ? setIsscroll(true)
       : setIsscroll(false);
   };
-
-  const maconnerieImages = [
-    "https://images.pexels.com/photos/1463917/pexels-photo-1463917.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/69483/pexels-photo-69483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/7931/pexels-photo-7931.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://th.bing.com/th/id/R.e054dcb8fc366e54aa8688500adbc74a?rik=pHkoKzOxLo%2f7zA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f0%2f06%2fPumping_concrete_archives_of_ontario_york_university_construction_jan08.jpg&ehk=7FgweV3Mke1%2bhiXlHnR2MOYQUuM41aeF80By5xUb65w%3d&risl=1&pid=ImgRaw&r=0",
-  ];
 
   const initialCategory = metiers.length > 0 ? metiers[0].name : null;
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
@@ -94,8 +87,8 @@ const Categories = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-16 sm:grid-cols-1 md:grid-cols-4">
-        <div className="md:col-span-1">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-4">
+        <div className="md:col-span-1 flex md:block">
           <nav class="flex flex-col space-y-3">
             {Array.from(new Set(metiers.map((metier) => metier.name))).map(
               (name, metier) => (
@@ -104,8 +97,8 @@ const Categories = () => {
                   className={`${
                     selectedCategory === name
                       ? "text-primary"
-                      : "font-semibold tracking-wider text-gray-600"
-                  } font-semibold tracking-wider text-gray-600 cursor-pointer hover:text-primary`}
+                      : "font-semibold tracking-wider text-slate-900"
+                  } uppercase font-bold text-xl tracking-wider text-slate-900 cursor-pointer hover:text-primary`}
                   onClick={() => handleCategoryChange(name)}
                 >
                   {name}
@@ -179,21 +172,29 @@ const Categories = () => {
               </HeroCarousel>
             ))}
           </div> */}
-          <div className="relative overflow-hidden">
+          {remainingItems.map((item) => (
+            <div className="md:-mt-3 text-2xl font-bold text-center mb-[1rem]">
+              {item?.name}
+            </div>
+          ))}
+          <div className="  relative overflow-hidden bg-white p-2 md:p-5 rounded-lg">
             {remainingItems.map((item) => (
-              <HeroCarousel autoSlide={true}>
-                {item?.image?.map((myImage) => (
-                  <div
-                    className="services-carousel z-0 flex-center-center px-[3%] md:px-[6%]"
-                    style={{
-                      backgroundImage: `url('${myImage}')`,
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                      minWidth: "100%",
-                    }}
-                  ></div>
-                ))}
-              </HeroCarousel>
+              <div>
+                <div className="mb-5 text-2xl">{item?.description}</div>
+                {/* <HeroCarousel autoSlide={true}>
+                  {item?.image?.map((myImage) => (
+                    <div
+                      className="services-carousel z-0 flex-center-center px-[3%] md:px-[6%]"
+                      style={{
+                        backgroundImage: `url('${myImage}')`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        minWidth: "100%",
+                      }}
+                    ></div>
+                  ))}
+                </HeroCarousel> */}
+              </div>
             ))}
           </div>
         </div>

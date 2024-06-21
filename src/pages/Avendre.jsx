@@ -25,12 +25,12 @@ const Avendre = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [buyData, setBuyData] = useState([]);
-  const [beds, setBeds] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [propertyType, setPropertyType] = useState("");
+  const [beds, setBeds] = useState(null);
+  const [bathrooms, setBathrooms] = useState(null);
+  const [propertyType, setPropertyType] = useState(null);
   const [city, setCity] = useState("");
-  const [minPropertyPrice, setMinPropertyPrice] = useState("");
-  const [maxPropertyPrice, setMaxPropertyPrice] = useState("");
+  const [minPropertyPrice, setMinPropertyPrice] = useState(null);
+  const [maxPropertyPrice, setMaxPropertyPrice] = useState(null);
   const [propertyTypeData, setPropertyTypeData] = useState([]);
   const [selectedType, setSelectedType] = useState("");
 
@@ -107,7 +107,6 @@ const Avendre = () => {
     setLoading(false);
   };
 
-
   const [layout, setLayout] = useState("grid");
 
   return (
@@ -115,7 +114,7 @@ const Avendre = () => {
       <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
         <div className="text-center mb-[3rem]">
           <h1 className="text-2xl text-primary mt-[1rem] mb-[1rem] font-bold ">
-            DES MAISONS MIS EN VENTE
+            DES BIENS UNIQUE À LA VENTE
           </h1>
           <h1 className="heading">
             Découvrez une gamme diversifiée d'immeubles à vendre, soigneusement

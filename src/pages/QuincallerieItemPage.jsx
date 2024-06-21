@@ -129,7 +129,7 @@ const QuincallerieItemPage = ({ basis }) => {
 
             <div className="block md:flex mb-[.5rem]">
               <div className="flex items-center">
-                <h3 className="text-4xl md:text-xl font-bold mr-7">Contact:</h3>
+                <h3 className="text-3xl md:text-xl font-bold mr-7">Contact:</h3>
                 <a
                   href="tel:+22966551600"
                   style={{ width: "50%" }}
@@ -143,7 +143,7 @@ const QuincallerieItemPage = ({ basis }) => {
               </div>
 
               <div className="flex items-center mt-[-.5rem]">
-                <h3 className="text-2xl md:text-xl font-bold mr-2">
+                <h3 className="text-3xl md:text-xl font-bold mr-2">
                   Whatsapp:
                 </h3>
                 <a
@@ -168,7 +168,7 @@ const QuincallerieItemPage = ({ basis }) => {
             {filterData.slice(0, 5).map((item) => (
               <div
                 key={item._id}
-                className="relative flex-shrink-0 w-[400px] h-[400px] group rounded-lg overflow-hidden"
+                className="relative flex-shrink-0 w-[400px] h-[450px] group rounded-lg overflow-hidden"
               >
                 <BoutiqueProduct key={item._id} {...item} basis={basis} />
               </div>

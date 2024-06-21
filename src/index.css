@@ -285,14 +285,14 @@ a.active {
 
 @media only screen and (max-width: 991px) {
   .hero {
-    min-height: 70vh;
+    min-height: 100vh;
   }
 
 }
 
 @media only screen and (max-width: 758px) {
   .hero {
-    min-height: 70vh;
+    min-height: 100vh;
   }
 
   .heading {

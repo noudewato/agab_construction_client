@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FiDelete } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -35,7 +35,7 @@ const Alouer = () => {
   const [propertyTypeData, setPropertyTypeData] = useState([]);
   const [selectedType, setSelectedType] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     setErrors(null);
 
@@ -51,11 +51,11 @@ const Alouer = () => {
     }
 
     setLoading(false);
-  };
+  }, [baseUrl]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   const rentDataFiltered = rentData?.filter(
     (item) => item.propertyStatus === "A Louer"
@@ -139,14 +139,6 @@ const Alouer = () => {
     setRentData(filteredData);
   };
 
-  useEffect(() => {
-    const loaderTimer = setTimeout(() => {
-      setLoading(true);
-    }, 1000);
-
-    return () => clearTimeout(loaderTimer);
-  }, []);
-
   const [layout, setLayout] = useState("grid");
 
   return (
@@ -154,9 +146,9 @@ const Alouer = () => {
       <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
         <div className="text-center mb-[3rem]">
           <h1 className="text-2xl text-primary mt-[1rem] mb-[1rem] font-bold ">
-            NOS APPARTEMENTS EN LOCATION
+            DES BIENS EXCLUSIFS À LA LOCATION
           </h1>
-          <h1 className="heading">
+          <h1 className="heading text-amber-700">
             Découvrez Une Gamme Diversifiée D'immeubles Mise En Location,
             Soigneusement Sélectionnés Pour Leur Qualité Et Leur Valeur. Que
             Vous Recherchiez Une Propriété Résidentielle Ou Commerciale, Nous

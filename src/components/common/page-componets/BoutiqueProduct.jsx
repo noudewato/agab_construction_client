@@ -14,26 +14,39 @@ const BoutiqueProduct = ({ _id, productName, images, productPrice, basis }) => {
         to={`/boutique/${_id}`}
         className="group-hover:text-primary transition-a"
       >
+        {/* <div className="group !opacity-100 overflow-hidden relative">
+          <div className="!opacity-100">
+            <img
+              src={images[0]}
+              alt={productName}
+              className="h-fit md:h-[300px] object-cover group-hover:scale-125 transition-a"
+            />
+          </div>
+
+          <CardHoverIcons />
+        </div> */}
         <div className="group !opacity-100 overflow-hidden relative">
           <div className="!opacity-100">
             <img
               src={images[0]}
               alt={productName}
-              className="w-[100%] h-fit md:h-[300px] object-cover group-hover:scale-125 transition-a"
+              className="w-full h-auto md:h-[300px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-125"
             />
           </div>
-
           <CardHoverIcons />
         </div>
+
         <div className="p-3 relative">
-          <h1 className="text-lg font-bold capitalize">{productName}</h1>
+          <h1 className="text-lg h-[50px] font-bold capitalize">
+            {productName}
+          </h1>
 
           <div className="mt-4 flex justify-between items-center">
             <div className="text-lg font-semibold text-primary  py-1 rounded">
               {myCurrency.format(productPrice).concat(".00")}{" "}
               <span className="text-black">FCFA</span>
             </div>
-            <button className="btn btn-secondary">detail</button>
+            <button className="btn btn-secondary">details</button>
           </div>
         </div>
       </Link>

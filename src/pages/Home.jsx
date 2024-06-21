@@ -15,7 +15,7 @@ const Home = () => {
     <HomeLayout>
       <div className="mt-[3rem]">
         <Hero />{" "}
-        <div className="mt-[-15rem] sm:mt-0 px-[3%] md:px-[6%]">
+        <div className="-mt-10 px-[3%] md:px-[6%]">
           <Filters />
           {/* <Invest /> */}
           <Speciality />

@@ -1,0 +1,49 @@
+.horizontal-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .menu-items {
+    display: block;
+    padding-bottom: 10px;
+  }
+  
+  .menu-item {
+    display: block;
+    padding: 8px 16px;
+    margin-right: 8px;
+    /* background-color: #f2f2f2; */
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: black;
+  }
+  
+  .menu-item:hover {
+    background-color: red;
+    color: #f2f2f2;
+  }
+  
+  .menu-item.active {
+    background-color: red;
+    color: #f2f2f2;
+  }
+
+  @media only screen and (max-width:991px) {
+    .menu-items {
+        display: flex;
+        padding-bottom: 10px;
+      }
+      
+      .menu-item {
+        display: flex;
+        padding: 8px 16px;
+        margin-right: 8px;
+        background-color: #f2f2f2;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+  }
+  

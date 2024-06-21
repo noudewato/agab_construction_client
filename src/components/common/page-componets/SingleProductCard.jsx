@@ -58,7 +58,7 @@ const SingleProductCard = ({
           }
           className="group-hover:text-primary transition-a"
         >
-          <h1 className="text-lg font-bold capitalize">{propertyTitle}</h1>
+          <h1 className="text-lg font-bold uppercase  h-20">{propertyTitle}</h1>
 
           <div className="flex justify-between mt-3 mb-[3rem]">
             <div className="flex-align-center gap-x-2">
@@ -98,7 +98,7 @@ const SingleProductCard = ({
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 my-2 mx-4 flex-center-between">
+          <div className="absolute bottom-0 left-0 right-0 my-2  mx-4 flex-center-between">
             <h1 className="text-lg font-semibold text-primary">
               {myCurrency.format(propertyPrice)} FCFA{" "}
               <span className="text-gray-400">
@@ -107,7 +107,9 @@ const SingleProductCard = ({
             </h1>
             <button
               className={`btn ${
-                propertyStatus === "A Louer" ? "bg-amb text-neutral-50 hover:bg-amber-700" : "btn-secondary"
+                propertyStatus === "A Louer"
+                  ? "bg-amb text-neutral-50 hover:bg-amber-700"
+                  : "btn-secondary"
               }`}
             >
               details
