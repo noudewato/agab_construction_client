@@ -20,8 +20,12 @@ const Footer = () => {
             </Link>
             <div className="mt-3">
               <p className="text-sm">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
-                harum explicabo illo, magnam vitae expedita.
+                Nous vous offrons une expertise de premier plan dans la gestion
+                immobilière et la vente de parcelles au Bénin, avec un
+                engagement indéfectible envers la satisfaction client. Notre
+                approche intègre une connaissance approfondie du marché local et
+                un service personnalisé pour répondre efficacement à vos
+                besoins immobiliers.
               </p>
               <div className="gap-5 my-6 flex-center-center">
                 <div className="icon-box bg-dark-light hover:bg-hover-color-dark">
@@ -47,37 +51,34 @@ const Footer = () => {
             <h2 className="text-xl font-semibold">Services</h2>
             <ul>
               <li className="my-3 text-muted">
-                <a href="#"> Order Tracking</a>
+                <Link  to="/services">Gestion immobilière</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Whislist</a>
+                <Link  to="/services">Quincaillerie générale</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Terms of use</a>
+                <Link  to="/services">Conception et Architecture</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Contact support</a>
-              </li>
-              <li className="my-3 text-muted">
-                <a href="#">2 year guarantee</a>
+                <Link  to="/services">Vente et achat des immeubles</Link>
               </li>
             </ul>
           </div>
 
           <div className="flex-1 basis-[10rem]">
-            <h2 className="text-xl font-semibold">Quick Links</h2>
+            <h2 className="text-xl font-semibold">Rapide Liens</h2>
             <ul>
               <li className="my-3 text-muted">
-                <a href="#"> About Us</a>
+                <Link to="/home">Accueil</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Services</a>
+                <Link to="#">A propos</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Blog</a>
+                <Link to="/services">Services</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Portifolio</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -86,19 +87,19 @@ const Footer = () => {
             <h2 className="text-xl font-semibold">Business</h2>
             <ul>
               <li className="my-3 text-muted">
-                <a href="#"> Success</a>
+                <Link> Success</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Guide</a>
+                <Link>Guide</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Mission</a>
+                <Link>Mission</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Terms & Conditions</a>
+                <Link>Terms & Conditions</Link>
               </li>
               <li className="my-3 text-muted">
-                <a href="#">Pricacy Policy</a>
+                <Link>Pricacy Policy</Link>
               </li>
             </ul>
           </div> */}
@@ -124,7 +125,7 @@ const Footer = () => {
       </footer>
       <div className="py-2 mt-3 text-center border-t text-muted border-dark">
         <p>
-          Created By <span className="text-primary">Wabweni Brian</span> | All
+          Created By <span className="text-primary">Fawaz Noudewato</span> | All
           Rights Reserved
         </p>
       </div>

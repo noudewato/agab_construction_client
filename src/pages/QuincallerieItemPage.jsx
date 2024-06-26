@@ -162,7 +162,7 @@ const QuincallerieItemPage = ({ basis }) => {
         </div>
         <div className="mt-[1rem]">
           <h1 className="text-3xl font-bold mb-[.5rem]">
-            Product Similaires
+            Produit Similaires
           </h1>
           <SimilarItem>
             {filterData.slice(0, 5).map((item) => (

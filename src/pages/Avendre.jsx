@@ -42,6 +42,7 @@ const Avendre = () => {
       .get(`${baseUrl}/api/properties`)
       .then((response) => {
         setBuyData(response.data);
+        setPropertyTypeData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -109,6 +110,40 @@ const Avendre = () => {
 
   const [layout, setLayout] = useState("grid");
 
+  const propertyTypeDataFiltered = propertyTypeData?.filter(
+    (item) => item.propertyStatus === "A Vendre"
+  );
+
+  const uniqueType = [
+    ...new Set(propertyTypeDataFiltered?.map((item) => item.propertyType)),
+  ];
+
+  const sumByPropertyType = propertyTypeDataFiltered?.reduce((acc, item) => {
+    acc[item.propertyType] = (acc[item.propertyType] || 0) + 1;
+    return acc;
+  }, {});
+
+  const handleRadioChange = (e) => {
+    const selectedType = e.target.value;
+    setSelectedType(selectedType);
+    if (selectedType === "all") {
+      setBuyData(propertyTypeDataFiltered);
+    } else {
+      const filteredData = propertyTypeDataFiltered.filter(
+        (item) => item.propertyType === selectedType
+      );
+      setBuyData(filteredData);
+    }
+
+    // Reset other filters
+    setBathrooms("");
+    setBeds("");
+    setCity("");
+    setPropertyType("");
+    setMinPropertyPrice("");
+    setMaxPropertyPrice("");
+  };
+
   return (
     <HomeLayout>
       <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
@@ -126,7 +161,11 @@ const Avendre = () => {
             notre sélection d'immeubles de qualité supérieure
           </h1>
         </div>
-        <HeadeFilters layout={layout} setLayout={setLayout} />
+        <HeadeFilters
+          buyDataFiltered={buyDataFiltered}
+          layout={layout}
+          setLayout={setLayout}
+        />
         <div className="grid md:grid-cols-4 gap-x-14 mt-5">
           <div className=" md:col-span-1 row-start-3 md:row-start-auto h-fit md:sticky top-0">
             <div
@@ -159,7 +198,12 @@ const Avendre = () => {
                   onSearch={handleSearch}
                   onCancel={handleCancel}
                 />
-                <Type />
+                <Type
+                  uniqueType={uniqueType}
+                  sumByPropertyType={sumByPropertyType}
+                  handleRadioChange={handleRadioChange}
+                  selectedType={selectedType}
+                />
               </div>
             </div>
           </div>

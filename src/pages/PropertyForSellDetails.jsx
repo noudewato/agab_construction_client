@@ -165,7 +165,9 @@ const PropertyForSellDetails = ({ basis }) => {
                     )}
 
                     <p className="text-lg font-semibold">
-                      {singleData?.beds ? singleData?.beds + " Douches" : ""}{" "}
+                      {singleData?.bathrooms
+                        ? singleData?.bathrooms + " Douches"
+                        : ""}{" "}
                     </p>
                   </div>
                   <div className="flex-align-center gap-x-2">
@@ -214,15 +216,16 @@ const PropertyForSellDetails = ({ basis }) => {
 
           <div className="mt-[1rem]">
             <h1 className="text-3xl font-bold mb-[.5rem]">
-              Proprietes Similaires
+              PROPRIÉTÉS SIMILAIRES
             </h1>
             <SimilarItem>
               {filterData.slice(0, 5).map((item) => (
-                 <div
-                 key={item._id}
-                 className="relative flex-shrink-0 w-[400px] h-[450px] group rounded-lg overflow-hidden">
-                 <SingleProductCard key={item._id} {...item} basis={basis} />
-                 </div>
+                <div
+                  key={item._id}
+                  className="relative flex-shrink-0 w-[400px] h-[450px] group rounded-lg overflow-hidden"
+                >
+                  <SingleProductCard key={item._id} {...item} basis={basis} />
+                </div>
               ))}
             </SimilarItem>
           </div>

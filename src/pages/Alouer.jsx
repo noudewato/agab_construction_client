@@ -26,7 +26,7 @@ const Alouer = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [rentData, setRentData] = useState([]);
-  const [beds, setBeds] = useState(0);
+  const [beds, setBeds] = useState("");
   const [bathrooms, setBathrooms] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [city, setCity] = useState("");
@@ -126,17 +126,22 @@ const Alouer = () => {
     const selectedType = e.target.value;
     setSelectedType(selectedType);
 
-    const filteredData = propertyTypeDataFiltered.filter(
-      (item) => item.propertyType === selectedType
-    );
+    if (selectedType === "all") {
+      setRentData(propertyTypeDataFiltered);
+    } else {
+      const filteredData = propertyTypeDataFiltered.filter(
+        (item) => item.propertyType === selectedType
+      );
+      setRentData(filteredData);
+    }
 
+    // Reset other filters
     setBathrooms("");
     setBeds("");
     setCity("");
     setPropertyType("");
     setMinPropertyPrice("");
     setMaxPropertyPrice("");
-    setRentData(filteredData);
   };
 
   const [layout, setLayout] = useState("grid");
@@ -157,23 +162,13 @@ const Alouer = () => {
             Conseils Avisés Et Un Service Personnalisé À Chaque Étape.
           </h1>
         </div>
-        <HeadeFilters layout={layout} setLayout={setLayout} />
+        <HeadeFilters
+          rentDataFiltered={rentDataFiltered}
+          layout={layout}
+          setLayout={setLayout}
+        />
 
         <div className="grid md:grid-cols-4 gap-x-14 mt-5">
-          {loading ? (
-            <div className="md:col-span-3  flex items-center min-h-fit justify-center">
-              <Loader />
-            </div>
-          ) : errors ? (
-            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
-              {errors}
-            </div>
-          ) : (
-            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
-              {layout === "grid" ? <PropertyList /> : <PropertyFullWidth />}
-              <Pagination itemsPerPage={8} pageData={rentDataFiltered} />
-            </div>
-          )}
           <div className=" md:col-span-1 row-start-3 md:row-start-auto h-fit md:sticky top-0">
             <div
               className={`filter-modal ${isFilterMenuOpen && "open"}`}
@@ -187,7 +182,7 @@ const Alouer = () => {
                   >
                     <FiDelete />
                   </div>
-                  <p className="uppercase">Filters</p>
+                  <p className="uppercase">Rechercher</p>
                 </div>
                 <AdvancedSearch
                   beds={beds}
@@ -215,6 +210,20 @@ const Alouer = () => {
               </div>
             </div>
           </div>
+          {loading ? (
+            <div className="md:col-span-3  flex items-center min-h-fit justify-center">
+              <Loader />
+            </div>
+          ) : errors ? (
+            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
+              {errors}
+            </div>
+          ) : (
+            <div className="md:col-span-3 mt-5 md:mt-0 h-fit md:sticky top-0 ">
+              {layout === "grid" ? <PropertyList /> : <PropertyFullWidth />}
+              <Pagination itemsPerPage={8} pageData={rentDataFiltered} />
+            </div>
+          )}
         </div>
       </div>
     </HomeLayout>

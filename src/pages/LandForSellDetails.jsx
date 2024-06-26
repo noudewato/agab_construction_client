@@ -87,7 +87,7 @@ const LandForSellDetails = ({ basis }) => {
         <div className="px-[3%] md:px-[6%] pt-[3rem] mt-[3rem] bg-slate-100 min-h-[100vh] pb-[5rem]">
           <div className="text-center mb-[2rem]">
             <h1 className="text-2xl text-primary mt-[2rem] mb-[1rem] font-bold ">
-              Propriete a louer
+              Parcelle a vendre
             </h1>
             <h1 className="heading">
               <h1 className="text-2xl md:text-5xl font-bold">
@@ -164,7 +164,7 @@ const LandForSellDetails = ({ basis }) => {
 
           <div className="mt-[1rem]">
             <h1 className="text-3xl font-bold mb-[.5rem]">
-              Proprietes Similaires
+            PROPRIÉTÉS SIMILAIRES
             </h1>
             <SimilarItem>
               {filterData.slice(0, 5).map((item) => (

@@ -161,7 +161,7 @@ const PropertyForRentDetails = ({ basis }) => {
                     )}
 
                     <p className="text-lg font-semibold">
-                      {singleData?.beds ? singleData?.beds + " Douches" : ""}{" "}
+                      {singleData?.bathrooms ? singleData?.bathrooms + " Douches" : ""}{" "}
                     </p>
                   </div>
                   <div className="flex-align-center gap-x-2">
@@ -220,7 +220,7 @@ const PropertyForRentDetails = ({ basis }) => {
 
           <div className="mt-[1rem]">
             <h1 className="text-3xl font-bold mb-[.5rem]">
-              Proprietes Similaires
+            PROPRIÉTÉS SIMILAIRES
             </h1>
             <SimilarItem>
               {filterData.slice(0, 5).map((item) => (

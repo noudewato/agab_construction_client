@@ -48,10 +48,16 @@ const SingleHomeCard = ({
       <CardLabels propertyStatus={propertyStatus} city={city} />
       <div className="p-3">
         <Link
-          to={`/parcelle/${_id}`}
+          to={
+            propertyStatus === "A Vendre"
+              ? `/a-vendre/${_id}`
+              : propertyStatus === "A Louer"
+              ? `/a-louer/${_id}`
+              : `/parcelle/${_id}`
+          }
           className="group-hover:text-primary transition-a"
         >
-          <h1 className="text-lg font-bold capitalize mb-[3rem]">
+          <h1 className="text-lg font-bold uppercase mb-[3rem]">
             {propertyTitle}
           </h1>
 
@@ -62,7 +68,15 @@ const SingleHomeCard = ({
                 {duration ? "/" + duration : ""}
               </span>
             </h1>
-            <button className="btn btn-secondary">details</button>
+            <button
+              className={`btn ${
+                propertyStatus === "A Louer"
+                  ? "bg-amb text-neutral-50 hover:bg-amber-700"
+                  : "btn-secondary"
+              }`}
+            >
+              details
+            </button>
           </div>
         </Link>
       </div>

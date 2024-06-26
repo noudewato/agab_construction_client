@@ -32,7 +32,7 @@ const AdvancedSearch = ({
             htmlFor="propertyType"
             className="text-medium font-semibold text-slate-900"
           >
-            Address
+            Ville
           </label>
           <select
             name=""
@@ -83,6 +83,7 @@ const AdvancedSearch = ({
             <input
               type="number"
               value={beds}
+              min={0}
               onChange={(e) => setBeds(e.target.value)}
               className="flex h-9 w-full !rounded-md !border border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-800 px-3 py-1 !shadow-sm transition-colors placeholder:text-slate-400 focus-visible:outline-none focus:border-transparent focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
             />
@@ -96,6 +97,7 @@ const AdvancedSearch = ({
             </label>
             <input
               type="number"
+              min={0}
               value={bathrooms}
               onChange={(e) => setBathrooms(e.target.value)}
               className="flex h-9 w-full !rounded-md !border border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-800 px-3 py-1 !shadow-sm transition-colors placeholder:text-slate-400 focus-visible:outline-none focus:border-transparent focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
@@ -112,6 +114,7 @@ const AdvancedSearch = ({
               Prix Min
             </label>
             <input
+              min={0}
               type="number"
               value={minPropertyPrice}
               onChange={(e) => setMinPropertyPrice(e.target.value)}
@@ -126,6 +129,7 @@ const AdvancedSearch = ({
               Prix Max
             </label>
             <input
+              min={0}
               type="number"
               value={maxPropertyPrice}
               onChange={(e) => setMaxPropertyPrice(e.target.value)}

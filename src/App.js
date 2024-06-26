@@ -14,8 +14,9 @@ import {
   LandForSellDetails,
   PropertyForRentDetails,
   PropertyForSellDetails,
-  Realisation
+  Realisation,
 } from "./pages";
+import FilterResults from "./pages/FilterResults";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/parcelle" element={<Parcelle />} />
       <Route path="/parcelle/:id" element={<LandForSellDetails />} />
       <Route path="/boutique" element={<Quincallerie />} />
+      <Route path="/results" element={<FilterResults />} />
       <Route path="/boutique/:id" element={<QuincallerieItemPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/portifolio" element={<Portifolio />} />
