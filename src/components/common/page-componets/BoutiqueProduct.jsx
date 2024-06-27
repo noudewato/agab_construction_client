@@ -34,6 +34,9 @@ const BoutiqueProduct = ({ _id, productName, images, productPrice, basis }) => {
             />
           </div>
           <CardHoverIcons />
+          <div>
+            
+          </div>
         </div>
 
         <div className="p-3 relative">

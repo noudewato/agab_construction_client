@@ -98,12 +98,12 @@ const PropertyForSellDetails = ({ basis }) => {
               </h1>
             </h1>
           </div>
-          <div className="block md:flex mb-[.5rem]">
-            <div className="flex items-center">
-              <h3 className="text-2xl md:text-xl font-bold mr-7">Contact:</h3>
+          <div className="block md:flex  mb-[.5rem]">
+            <div className="flex items-center md:mr-5">
+              <h3 className="text-2xl md:text-xl font-bold mr-10">Contact:</h3>
               <a
                 href="tel:+22966551600"
-                style={{ width: "50%" }}
+                // style={{ width: "50%" }}
                 className="btn btn-primary font-bold flex-center-center gap-x-2 my-[1rem]"
               >
                 <span>
@@ -113,11 +113,11 @@ const PropertyForSellDetails = ({ basis }) => {
               </a>
             </div>
 
-            <div className="flex items-center mt-[-.5rem]">
-              <h3 className="text-2xl md:text-xl font-bold mr-2">Whatsapp:</h3>
+            <div className="flex items-center">
+              <h3 className="text-2xl md:text-xl font-bold mr-3">Whatsapp:</h3>
               <a
                 href="https://wa.me/+22996661896"
-                style={{ width: "50%" }}
+                // style={{ width: "50%" }}
                 className="btn flex-center-center bg-green-400 font-bold text-white gap-x-2 my-[1rem] hover:bg-green-600"
               >
                 <span>

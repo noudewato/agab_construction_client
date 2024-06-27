@@ -12,14 +12,14 @@ const Footer = () => {
         <div className="flex flex-wrap gap-2">
           <div className="flex-1 basis-[10rem]">
             <Link to="/" className="flex-shrink-0 flex-align-center gap-x-1">
-              <h1 className="hidden md:block text-xl">
-                <img src="/agab.jpeg" alt="" width={"40px"} />
-                <span className="text-primary">Agab</span>{" "}
-                <span className="text-secondary">Construction</span>
-              </h1>
+              <h2 className="block text-xl font-semibold ">
+                <img className="hidden md:block" src="/agab.jpeg" alt="" width={"40px"} />
+                <span className="text-white md:text-primary">Agab</span>{" "}
+                <span className="text-white md:text-secondary">Construction</span>
+              </h2>
             </Link>
             <div className="mt-3">
-              <p className="text-sm">
+              <p className="text-sm text-muted">
                 Nous vous offrons une expertise de premier plan dans la gestion
                 immobilière et la vente de parcelles au Bénin, avec un
                 engagement indéfectible envers la satisfaction client. Notre

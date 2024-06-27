@@ -9,16 +9,16 @@ const ContactInfo = () => {
           <FiPhone />
         </div>
         <h1 className="mt-2 text-lg font-semibold">Telephone</h1>
-        <p>(+229) 96661896</p>
-        <p> (+229) 54608887</p>
+        <a href="tel:+22966551600"> (+229) 66551600</a> <br />
+        <a href="https://wa.me/+22996661896">(+229) 96661896</a>
       </div>
       <div className="text-center">
         <div className="icon-box !h-14 !w-14 !bg-primary text-white mx-auto text-2xl">
           <FiMail />
         </div>
         <h1 className="mt-2 text-lg font-semibold">Email Address</h1>
-        <p>agabconstruction@gmail.com</p>
-        <p>agab.international@gmail.com</p>
+        <a href="$">agabconstruction@gmail.com</a><br />
+        <a href="mailto:faridomotayebi@gmail.com">faridomotayebi@gmail.com</a>
       </div>
       <div className="text-center">
         <div className="icon-box !h-14 !w-14 !bg-primary text-white mx-auto text-2xl">
