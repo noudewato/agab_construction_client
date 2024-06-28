@@ -76,7 +76,7 @@ const Carousel = ({ images }) => {
             exit="exit"
             src={images[index]}
             alt="slides"
-            className="absolute top-0 left-0 w-full h-full object-cover object-center"
+            className="absolute top-0 left-0 w-full h-[400px] object-cover object-center"
             key={images[index]}
             custom={direction}
           />

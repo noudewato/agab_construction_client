@@ -35,7 +35,7 @@ const SingleHomeCard = ({
             <img
               src={image}
               alt={propertyTitle}
-              className="w-full  h-fit md:h-[250px] object-cover group-hover:scale-125 transition-a"
+              className="w-full  h-fit md:h-[500px] object-cover group-hover:scale-125 transition-a"
             />
           </div>
         ) : (

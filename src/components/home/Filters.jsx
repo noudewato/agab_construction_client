@@ -189,7 +189,7 @@ const Filters = () => {
             </div>
           </div> */}
           <button type="submit" className="w-full btn btn-primary md:w-fit">
-            {loading && <>...</>} search
+            {loading && <>...</>} recherche
           </button>
         </div>
       </form>

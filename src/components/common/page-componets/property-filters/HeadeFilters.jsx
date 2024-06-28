@@ -38,7 +38,7 @@ const HeadeFilters = ({
             } md:hidden rounded-xl place-items-center sm:cursor-pointer hover:bg-slate-200 transition-a dark:bg-card-dark`}
             onClick={() => dispatch(openFilterMenu())}
           >
-            Rechercher
+            Recherche
           </div>
         </div>
         {landData ? (

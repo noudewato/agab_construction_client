@@ -168,7 +168,7 @@ const QuincallerieItemPage = ({ basis }) => {
             {filterData.slice(0, 5).map((item) => (
               <div
                 key={item._id}
-                className="relative flex-shrink-0 w-[400px] h-[450px] group rounded-lg overflow-hidden"
+                className="relative flex-shrink-0 w-[400px] h-[500px] group rounded-lg overflow-hidden"
               >
                 <BoutiqueProduct key={item._id} {...item} basis={basis} />
               </div>

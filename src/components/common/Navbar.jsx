@@ -64,7 +64,7 @@ const Navbar = () => {
         className="flex-shrink-0 flex-align-center gap-x-1 font-bold"
       >
         {/* <BiBuildingHouse className="text-3xl text-primary" /> */}
-        <img src="/agab.jpeg" alt="" width={'40px'} />
+        <img src="/agab.jpeg" alt="" width={'80px'} />
         <h1 className="hidden md:block text-xl">
           <span className="text-primary">Agab</span>{" "}
            <span className="text-secondary">Construction</span>
@@ -131,7 +131,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="space-x-2 flex-align-center">
+        <div className="space-x-2 flex-align-center mr-4">
           {/*----------------------------- search Bar----------------------------------------------------- */}
           <form onSubmit={handleSubmit}>
             <div
@@ -162,24 +162,24 @@ const Navbar = () => {
           </form>
 
           {/*----------------------------- Dark mode toggle-------------------------------------------------- */}
-          <div
+          {/* <div
             className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent"
             onClick={handleDarkMode}
           >
             {darkMode ? <FiSun /> : <FiMoon />}
-          </div>
+          </div> */}
           {/*----------------------------- Profile Icon-------------------------------------------------- */}
-          <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent">
+          {/* <div className="bg-white shadow-md icon-box dark:bg-dark-light hover:shadow-lg hover:bg-transparent">
             <BiUser
               onClick={() => {
                 setOpenModal(true);
               }}
             />
-          </div>
+          </div> */}
 
           {/*------------------------------- Mobile Menu Toogle------------------------- */}
           <div
-            className="icon-box md:hidden"
+            className="icon-box md:hidden text-4xl"
             onClick={() => dispatch(openSidebar())}
           >
             <BiMenu />

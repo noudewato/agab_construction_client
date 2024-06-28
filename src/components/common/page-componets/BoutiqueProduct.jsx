@@ -30,7 +30,7 @@ const BoutiqueProduct = ({ _id, productName, images, productPrice, basis }) => {
             <img
               src={images[0]}
               alt={productName}
-              className="w-full h-auto md:h-[300px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-125"
+              className="w-full h-[350px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-125"
             />
           </div>
           <CardHoverIcons />
