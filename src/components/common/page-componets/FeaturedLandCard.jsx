@@ -51,7 +51,7 @@ const FeaturedLandCard = ({
           to={`/parcelle/${_id}`}
           className="group-hover:text-primary transition-a"
         >
-          <h1 className="text-lg font-bold capitalize mb-[3rem]">
+          <h1 className="text-lg font-bold capitalize mb-[3rem] h-20">
             {propertyTitle}
           </h1>
 

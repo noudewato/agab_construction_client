@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   AdvancedSearch,
   Pagination,
+  Type,
 } from "../components/common/page-componets";
 import { BoutiqueList } from "../components/property";
 import { closeFilterMenu, uiStore } from "../features/uiSlice";
 import HomeLayout from "./HomeLayout";
 import axios from "axios";
 import { baseUrl } from "../services/api";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Loader from "../components/common/Loader";
 
 const Quincallerie = () => {
@@ -23,8 +24,10 @@ const Quincallerie = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const [itemData, setItemData] = useState([]);
+  const [productData, setProductData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const fetchData = () => {
+  const fetchData = useCallback(() => {
     setLoading(true);
     setErrors(null);
 
@@ -32,6 +35,7 @@ const Quincallerie = () => {
       .get(`${baseUrl}/api/products`)
       .then((response) => {
         setItemData(response.data);
+        setProductData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -40,11 +44,34 @@ const Quincallerie = () => {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  const uniqueType = [
+    ...new Set(productData?.map((item) => item.productCategory)),
+  ];
+
+  const sumByPropertyType = productData?.reduce((acc, item) => {
+    acc[item.productCategory] = (acc[item.productCategory] || 0) + 1;
+    return acc;
+  }, {});
+
+  const handleRadioChange = (e) => {
+    const selectedType = e.target.value;
+    setSelectedCategory(selectedType);
+
+    if (selectedType === "all") {
+      setItemData(productData);
+    } else {
+      const filteredData = productData.filter(
+        (item) => item.productCategory === selectedType
+      );
+      setItemData(filteredData);
+    }
+  };
   return (
     <HomeLayout>
       <div className="pt-[120px] md:pt-[150px] px-[3%] md:px-[6%] pb-[5rem]">
@@ -78,7 +105,14 @@ const Quincallerie = () => {
                   </div>
                   <p className="uppercase">Filters</p>
                 </div>
-                <AdvancedSearch />
+                {/* <AdvancedSearch /> */}
+                <Type
+                  title={"Category"}
+                  uniqueType={uniqueType}
+                  sumByPropertyType={sumByPropertyType}
+                  handleRadioChange={handleRadioChange}
+                  selectedType={selectedCategory}
+                />
               </div>
             </div>
           </div>

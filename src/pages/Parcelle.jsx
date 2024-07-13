@@ -78,7 +78,7 @@ const Parcelle = () => {
           <>{errors}</>
         ) : (
           <div>
-            <HeadeFilters
+            {/* <HeadeFilters
               landData={filteredData}
               layout={layout}
               setLayout={setLayout}
@@ -86,7 +86,7 @@ const Parcelle = () => {
               sumUniqueCity={sumUniqueCity}
               selectedType={selectedType}
               handleChange={handleChange}
-            />
+            /> */}
             <PropertyGridList textLength={120} showLabels />
             <Pagination itemsPerPage={9} pageData={filteredData} />
           </div>
